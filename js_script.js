@@ -26,13 +26,24 @@ editBtn.addEventListener('click',() =>
 //create grid
 const grid = document.createElement('div');
 container.appendChild(grid);
+//create grid when page loads
+createNewGrid(rowNum,columnNum);
 
 function removeOldGrid()
 {
-    //grid.removeChild();
+    while(grid.hasChildNodes()){
+
+        grid.removeChild(grid.firstChild);
+    };
+    
 }
 function createNewGrid(rowNum, columnNum)
 {
+    if(rowNum > 100 || columnNum > 100)
+    {
+        rowNum = 100;
+        columnNum = 100;
+    }
     for(let i = 0; i < columnNum; i++)
     {
         column = document.createElement('div');
