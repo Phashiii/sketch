@@ -25,6 +25,8 @@ editBtn.addEventListener('click',() =>
 });
 //create grid
 const grid = document.createElement('div');
+grid.style.height = "960px";
+grid.style.width = "960px";
 container.appendChild(grid);
 //create grid when page loads
 createNewGrid(rowNum,columnNum);
@@ -39,6 +41,8 @@ function removeOldGrid()
 }
 function createNewGrid(rowNum, columnNum)
 {
+    let newRow = 960 / rowNum;
+    
     if(rowNum > 100 || columnNum > 100)
     {
         rowNum = 100;
@@ -47,14 +51,14 @@ function createNewGrid(rowNum, columnNum)
     for(let i = 0; i < columnNum; i++)
     {
         column = document.createElement('div');
-        column.style.height = "16px";
-        column.style.width = "16px";
+        column.style.height = ""+newRow+"px"
+        column.style.width = ""+newRow+"px"
         column.className ='draw';
         for(let j = 0; j < rowNum; j++)
         {
             row = document.createElement('div');
-            row.style.height = "16px";
-            row.style.width = "16px";
+            row.style.height = ""+newRow+"px";
+            row.style.width = ""+newRow+"px";
             row.className ='draw';
             row.style.background = 'cyan';
             column.appendChild(row);
